@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_embed_media_soundcloud.field_cavalla_em_soundcloud_url
+    - paragraphs.paragraphs_type.cavalla_embed_media_soundcloud
+id: paragraph.cavalla_embed_media_soundcloud.default
+targetEntityType: paragraph
+bundle: cavalla_embed_media_soundcloud
+mode: default
+content:
+  field_cavalla_em_soundcloud_url:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

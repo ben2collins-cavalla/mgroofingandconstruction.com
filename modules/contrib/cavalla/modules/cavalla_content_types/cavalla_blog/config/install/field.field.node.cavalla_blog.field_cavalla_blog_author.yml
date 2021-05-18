@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_blog_author
+    - node.type.cavalla_blog
+    - views.view.cavalla_blog_author
+  module:
+    - viewfield
+id: node.cavalla_blog.field_cavalla_blog_author
+field_name: field_cavalla_blog_author
+entity_type: node
+bundle: cavalla_blog
+label: 'Cavalla Blog Author'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    token_help: ''
+    display_id: block_1
+    arguments: ''
+    items_to_display: ''
+    target_uuid: e5889205-6536-4eac-b777-53d6796a2b82
+default_value_callback: ''
+settings:
+  force_default: true
+  allowed_views:
+    cavalla_blog_author: '0'
+    cavalla_blog_feed: '0'
+    cavalla_blog_feeds: '0'
+    cavalla_photo_album_feed: '0'
+    cavalla_review_feed: '0'
+    cavalla_suggested_post_feeds: '0'
+    comment: '0'
+    content: '0'
+    block_content: '0'
+    files: '0'
+    frontpage: '0'
+    media: '0'
+    user_admin_people: '0'
+    comments_recent: '0'
+    content_recent: '0'
+    taxonomy_term: '0'
+    watchdog: '0'
+    webform_submissions: '0'
+    who_s_new: '0'
+    who_s_online: '0'
+  allowed_display_types:
+    block: block
+    embed: '0'
+    feed: '0'
+    default: '0'
+    page: '0'
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

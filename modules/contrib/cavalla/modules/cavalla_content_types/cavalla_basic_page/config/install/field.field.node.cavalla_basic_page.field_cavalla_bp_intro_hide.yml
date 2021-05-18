@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_bp_intro_hide
+    - node.type.cavalla_basic_page
+_core:
+  default_config_hash: SXvrdTRAN3JBHhmmfIGblOuDKz934JG4SVhR65b9fkw
+id: node.cavalla_basic_page.field_cavalla_bp_intro_hide
+field_name: field_cavalla_bp_intro_hide
+entity_type: node
+bundle: cavalla_basic_page
+label: 'Hide Introduction'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'true'
+  off_label: 'false'
+field_type: boolean

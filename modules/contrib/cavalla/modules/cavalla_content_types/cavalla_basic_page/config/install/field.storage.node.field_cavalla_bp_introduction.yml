@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: B3IEmJf6bg5rfP9Vdk90-FFSx2O2YkoGf_LCINwzQeA
+id: node.field_cavalla_bp_introduction
+field_name: field_cavalla_bp_introduction
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

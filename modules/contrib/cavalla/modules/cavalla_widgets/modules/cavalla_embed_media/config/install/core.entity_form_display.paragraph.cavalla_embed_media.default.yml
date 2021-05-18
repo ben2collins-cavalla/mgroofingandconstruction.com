@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_embed_media.field_cavalla_embed_media_widget
+    - paragraphs.paragraphs_type.cavalla_embed_media
+  module:
+    - paragraphs
+id: paragraph.cavalla_embed_media.default
+targetEntityType: paragraph
+bundle: cavalla_embed_media
+mode: default
+content:
+  field_cavalla_embed_media_widget:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

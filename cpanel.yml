@@ -1,0 +1,2 @@
+  - export DEPLOYPATH=/home/wdfns10e5eb3/public_html
+    - /bin/cp -R  * $DEPLOYPATH

@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ *
+ */
+function cavalla_call_to_action_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_call_to_action');
+}
+function cavalla_call_to_action_update_8002() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_call_to_action');
+}
+
+function cavalla_call_to_action_update_8003() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_call_to_action');
+}
+
+function cavalla_call_to_action_update_8004() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_call_to_action');
+}

@@ -1,0 +1,91 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_cavalla_taxonomy_node_feed
+    - taxonomy.vocabulary.cavalla_blog_category
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.cavalla_blog_category.field_cavalla_taxonomy_node_feed
+field_name: field_cavalla_taxonomy_node_feed
+entity_type: taxonomy_term
+bundle: cavalla_blog_category
+label: 'Taxonomy Feed'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: {  }
+    target_bundles_drag_drop:
+      cavalla_accordion:
+        weight: 23
+        enabled: false
+      cavalla_accordion_field:
+        weight: 24
+        enabled: false
+      cavalla_basic_html:
+        weight: 25
+        enabled: false
+      cavalla_blog_feeds:
+        weight: 26
+        enabled: false
+      cavalla_blog_popular_post:
+        weight: 27
+        enabled: false
+      cavalla_blog_reccomened_post:
+        weight: 28
+        enabled: false
+      cavalla_blog_recent_post:
+        weight: 29
+        enabled: false
+      cavalla_call_to_action:
+        weight: 30
+        enabled: false
+      cavalla_card:
+        weight: 31
+        enabled: false
+      cavalla_card_field:
+        weight: 32
+        enabled: false
+      cavalla_card_introduction:
+        weight: 33
+        enabled: false
+      cavalla_embed_media:
+        weight: 34
+        enabled: false
+      cavalla_embed_media_soundcloud:
+        weight: 35
+        enabled: false
+      cavalla_embed_media_youtube:
+        weight: 36
+        enabled: false
+      cavalla_featurette:
+        weight: 37
+        enabled: false
+      cavalla_photos:
+        weight: 38
+        enabled: false
+      cavalla_photo_album_feed:
+        weight: 39
+        enabled: false
+      cavalla_reviews_feed:
+        weight: 40
+        enabled: false
+      cavalla_taxonomy:
+        enabled: true
+        weight: 41
+      cavalla_testimonials:
+        weight: 42
+        enabled: false
+      cavalla_testimonials_field:
+        weight: 43
+        enabled: false
+      cavalla_webform:
+        weight: 44
+        enabled: false
+field_type: entity_reference_revisions

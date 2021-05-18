@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_embed_media_youtube.field_cavalla_em_youtube
+    - paragraphs.paragraphs_type.cavalla_embed_media_youtube
+id: paragraph.cavalla_embed_media_youtube.default
+targetEntityType: paragraph
+bundle: cavalla_embed_media_youtube
+mode: default
+content:
+  field_cavalla_em_youtube:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

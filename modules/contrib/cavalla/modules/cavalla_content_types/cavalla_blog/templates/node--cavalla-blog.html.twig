@@ -1,0 +1,39 @@
+<section id="blog_page_cavalla">
+  {% if 'Off' in content.field_cavalla_blog_hero_img_hide[0] %}
+  <!--Hero Image-->
+  <section class="hero_image">
+  {%  if true in content.field_cavalla_blog_hero_image[0] %}
+    <picture class="">
+      <img  class="background_image" src="{% spaceless %}{{content.field_cavalla_blog_hero_image[0]}}{% endspaceless %}" />
+    </picture>
+    <div class="marketing_background_text center_text">
+      <div class="container">
+        <h1 class="title-header">{{node.title.value}}</h1>
+      </div>
+    </div>
+  {% endif %}
+  </section>
+  <!--Breadcrumb-->
+  <section class="breadcrumb_section p-3 mb-5">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="breadcrumb">
+        {{ breadcrumb }}
+      </nav>
+    </div>
+  </section>
+  <!--Breadcrumb-->
+  {% endif %}
+  <section class="row m-auto w-100">
+    <div class="col col-12 col-md-9">
+      <section class="container">
+        {{ content.field_cavalla_blog_widgets }}
+        <section class="blog_author" aria="Blog Author">
+          {{ content.field_cavalla_blog_author }}
+        </section>
+      </section>
+    </div>
+    <div class="col col-12 col-md-3 blog_post_feed mx-auto">
+      {{ content.field_cavalla_blog_sp_feeds }}
+    </div>
+  </section>
+</section>

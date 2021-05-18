@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the mgroofing_theme theme.
+ */
+
+
+
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+
+function mgroofing_theme_preprocess_block(&$variables) {
+
+  $variables['label'] = $variables['elements']['content']['#title'];
+}

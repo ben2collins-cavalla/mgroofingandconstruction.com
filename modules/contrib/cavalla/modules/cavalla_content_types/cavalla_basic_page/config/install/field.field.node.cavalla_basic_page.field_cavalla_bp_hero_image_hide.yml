@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_bp_hero_image_hide
+    - node.type.cavalla_basic_page
+_core:
+  default_config_hash: dUnyW4R53MTGUN3H-I95bfTT2Qi9QlmmuKnAPB3rnHM
+id: node.cavalla_basic_page.field_cavalla_bp_hero_image_hide
+field_name: field_cavalla_bp_hero_image_hide
+entity_type: node
+bundle: cavalla_basic_page
+label: 'Hide Hero Image'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

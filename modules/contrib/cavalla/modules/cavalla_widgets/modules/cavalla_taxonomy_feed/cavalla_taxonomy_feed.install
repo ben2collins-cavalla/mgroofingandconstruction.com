@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Update Hook.
+ */
+function cavalla_taxonomy_feed_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_taxonomy_feed');
+}

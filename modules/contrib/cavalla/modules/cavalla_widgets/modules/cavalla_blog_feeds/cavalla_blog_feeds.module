@@ -1,0 +1,117 @@
+<?php
+
+/**
+ * @file
+ * Cavalla_blog_feeds module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_blog_feeds_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_blog_feeds':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our paragraphs templates in this module.
+ */
+function cavalla_blog_feeds_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__cavalla_blog_feeds' => [
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+/**
+ *
+ */
+function cavalla_blog_feeds_preprocess_paragraph__cavalla_blog_feeds(array &$variables) {
+  // Paragraph array.
+  $paragraph = $variables['elements']['#paragraph'];
+
+  // Term id for selected taxonomy value.
+  $target_id = $paragraph->field_cavalla_blog_feed_taxonomy->getValue();
+  $variables['target_id'] = $target_id[0]['target_id'];
+
+  // Article count value.
+  $blog_feed_count = $paragraph->field_cavalla_blog_feed_count->getValue();
+  $blog_feed_count = $blog_feed_count[0]['value'];
+
+  $display_options = $paragraph->field_cavalla_blog_feed_displays->getValue();
+  $display_options = $display_options[0]['value'];
+  $variables['display_options'] = $display_options;
+
+  $config = \Drupal::service('config.factory')->getEditable('cavalla_blog_feed.settings');
+  $config->set('article_count', $blog_feed_count)
+    ->save();
+
+  if ($blog_feed_count == 1) {
+    $variables['col_width'] = 'col-12 featurette';
+    $variables['blog_row_visible'] = FALSE;
+  }
+  else {
+    $variables['col_width'] = 'col-lg-8 col-md-12';
+    $variables['blog_row_visible'] = TRUE;
+  }
+
+  $variables['blog_feeds'] = views_embed_view('cavalla_blog_feeds', 'blog_feeds', $variables['target_id']);
+  $variables['most_recent_blog_feed'] = views_embed_view('cavalla_blog_feeds', 'blog_feeds_most_recent', $variables['target_id']);
+  $variables['blog_feeds_cards_display'] = views_embed_view('cavalla_blog_feeds', 'blog_feeds_cards_display', $variables['target_id']);
+
+}
+
+/**
+ *
+ */
+function cavalla_blog_feeds_views_pre_view(ViewExecutable $view) {
+
+  $config = \Drupal::config('cavalla_blog_feed.settings');
+  $article_count = $config->get('article_count');
+
+  if ($view->id() == 'cavalla_blog_feeds' && $view->current_display == 'blog_feeds') {
+    $view->setItemsPerPage($article_count - 1);
+    $view->setOffset(1);
+    $pager = $view->display_handler->getOption('pager');
+    $pager['type'] = 'some';
+    $view->display_handler->setOption('pager', $pager);
+  }
+
+  if ($view->id() == 'cavalla_blog_feeds' && $view->current_display == 'blog_feeds_most_recent') {
+    $view->setItemsPerPage(1);
+    $view->setOffset(0);
+    $pager = $view->display_handler->getOption('pager');
+    $pager['type'] = 'some';
+    $view->display_handler->setOption('pager', $pager);
+  }
+
+  if ($view->id() == 'cavalla_blog_feeds' && $view->current_display == 'blog_feeds_cards_display') {
+    $view->setItemsPerPage($article_count);
+    $view->setOffset(0);
+    $pager = $view->display_handler->getOption('pager');
+    $pager['type'] = 'some';
+    $view->display_handler->setOption('pager', $pager);
+  }
+
+}

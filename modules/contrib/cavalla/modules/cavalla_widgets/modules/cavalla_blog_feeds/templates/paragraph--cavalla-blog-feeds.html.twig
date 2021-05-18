@@ -1,0 +1,41 @@
+<!-- jumbotron-->
+
+<div class="container my-5 blog_feeds">
+  {% if true in content.field_cavalla_blog_feeds_header[0] %}
+  <h1>{{ content.field_cavalla_blog_feeds_header }}</h1>
+  {% endif %}
+
+  {% if true in content.field_cavalla_blog_feeds_subtext[0] %}
+  <p>{{ content.field_cavalla_blog_feeds_subtext }}</p>
+  {% endif %}
+
+  {% if display_options =='Jumbotron and List' %}
+  <section class="row jumbotron_list">
+    <section class="{{ col_width }}">
+      {{ most_recent_blog_feed }}
+    </section>
+    {% if blog_row_visible %}
+    <section class="col-md-4">
+      <div class="category_link d-none d-lg-block">
+        <a href="{{ content.field_cavalla_blog_feed_taxonomy[0]['#url'] }}">Read more {{ content.field_cavalla_blog_feed_taxonomy[0]['#title'] }} post</a>
+      </div>
+      <div class="blog_feeds_wrapper">
+        {{ blog_feeds }}
+      </div>
+       <div class="category_link d-lg-none">
+        <a href="{{ content.field_cavalla_blog_feed_taxonomy[0]['#url'] }}">Read more {{ content.field_cavalla_blog_feed_taxonomy[0]['#title'] }} post</a>
+      </div>
+    </section>
+   {% endif %}
+  </section>
+  {% endif %}
+
+  {% if display_options =='Cards' %}
+  <div class="card-grpup card_display">
+    <div class="row row-cols-1 row-cols-md-3">
+      {{ blog_feeds_cards_display }}
+    </div>
+  </div>
+  {% endif %}
+  <!--Cards-->
+</div>
